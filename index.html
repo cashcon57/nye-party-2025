@@ -159,6 +159,15 @@
   .subhead {
     text-align: center;
     margin-top: 8px;
+
+     @keyframes subtleShimmer {
+    0% {
+      background-position: -100% 0;
+    }
+    100% {
+      background-position: 100% 0;
+    }
+  }
     font-size: 0.9rem;
     color: #e5e7eb;
     opacity: 0.9;
@@ -199,6 +208,17 @@
     font-weight: 600;
     display: block;
     margin-bottom: 4px;
+       animation: subtleShimmer 4s ease-in-out infinite;
+    background: linear-gradient(
+      120deg,
+      #facc15 0%,
+      #fbbf24 50%,
+      #facc15 100%
+    );
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 
   .details > div {
@@ -221,13 +241,17 @@
 
   .dress-section {
     margin-top: 12px;
+       padding: 14px 18px;
+    background: rgba(249, 115, 22, 0.06);
+    border-radius: 10px;
+    border-left: 3px solid #f97316;
+    line-height: 1.8;
   }
 
   .dress-section strong {
     color: #f97316;
-    font-size: 0.95rem;
-  }
-
+     display: inline-block;
+    margin-bottom: 8px;
   .footer {
     margin-top: 32px;
     text-align: center;
