@@ -81,8 +81,13 @@
 
   @keyframes fall {
     0% {
-      top: -20px;
-      transform: translateX(0) rotate(0deg);
+    top: -50px;      transform: translateX(0) rotate(0deg);
+       .confetti:nth-child(10) { left: 15%; animation-delay: 1.5s; height: 11px; }
+  .confetti:nth-child(11) { left: 35%; animation-delay: 3.5s; height: 9px; }
+  .confetti:nth-child(12) { left: 55%; animation-delay: 5.5s; height: 13px; }
+  .confetti:nth-child(13) { left: 75%; animation-delay: 0.5s; height: 8px; }
+  .confetti:nth-child(14) { left: 85%; animation-delay: 4.5s; height: 10px; }
+  .confetti:nth-child(15) { left: 95%; animation-delay: 6.5s; height: 12px; }
     }
     50% {
       transform: translateX(10px) rotate(90deg);
@@ -138,9 +143,9 @@
       background-position: -200% 0;
     }
     100% {
-      background-position: 200% 0;
-    }
-  }
+    background-position: 300% 0;    
+         filter: brightness(1.2) contrast(1.1);
+       }
 
   .subhead {
     text-align: center;
@@ -153,6 +158,28 @@
   .details {
     margin-top: 32px;
     font-size: 0.85rem;
+   
+  .theme {
+    text-align: center;
+    margin-top: 12px;
+    font-size: 1.1rem;
+    font-style: italic;
+    color: #facc15;
+    text-shadow: 0 0 20px rgba(250, 204, 21, 0.5);
+    animation: shimmer 3.5s ease-in-out infinite;
+    background: linear-gradient(
+      120deg,
+      #facc15 0%,
+      #fff 25%,
+      #f97316 50%,
+      #facc15 75%,
+      #e5e7eb 100%
+    );
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
     line-height: 1.6;
     color: #e5e7eb;
   }
@@ -184,6 +211,26 @@
   .footer {
     margin-top: 32px;
     text-align: center;
+   
+  .dress-code {
+    margin-top: 16px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(148, 163, 184, 0.4);
+    font-size: 0.85rem;
+  }
+
+  .dress-code strong {
+    color: #facc15;
+  }
+
+  .dress-section {
+    margin-top: 12px;
+  }
+
+  .dress-section strong {
+    color: #f97316;
+    font-size: 0.9rem;
+  }
     font-size: 0.8rem;
     color: #9ca3af;
   }
@@ -252,6 +299,12 @@
     <div class="confetti"></div>
     <div class="confetti"></div>
     <div class="confetti"></div>
+       <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
 
     <div class="content">
       <div>
@@ -262,6 +315,7 @@
         <div class="details">
           <div>
             <strong>Location</strong><br />
+                   <div class="theme">"All That Glitters Is Gold"</div>
             Cash's House<br />
             13130 Pond Springs Rd, #3312<br />
             Austin, TX 78729
@@ -276,6 +330,18 @@
           <div class="byob">
             <strong>Drinks</strong><br />
             BYOB, but there will be a batched cocktail and bubbly ready for midnight.
+          </div>
+         
+          <div class="dress-code">
+            <strong>Dress Code</strong><br />
+            <div class="dress-section">
+              <strong>Ladies:</strong><br />
+              Cocktail or party attire encouraged. Sequins, metallics, champagne tones, or gold accents are perfect. Dressy but fun. Whatever makes you feel great ringing in the New Year.
+            </div>
+            <div class="dress-section">
+              <strong>Gentlemen:</strong><br />
+              No suits required. A nice button-down with slacks or dark jeans is perfect. Feel free to add a champagne, metallic, or gold touch—shirt, shoes, or accessory.
+            </div>
           </div>
         </div>
       </div>
