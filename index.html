@@ -1,392 +1,625 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>New Year's Eve Party 2025</title>
-<style>
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+  <meta charset="UTF-8">
+  <title>New Year's Eve Party 2025</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-body {
-  background: #020617;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  color: #f9fafb;
-  padding: 20px;
-}
+  <style>
+    :root {
+      --bg: #020617;
+      --card-bg: rgba(15, 23, 42, 0.9);
+      --accent: #eab308;
+      --accent-soft: rgba(234, 179, 8, 0.1);
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+      --border-subtle: rgba(148, 163, 184, 0.2);
+      --shadow-soft: 0 24px 60px rgba(15, 23, 42, 0.85);
+    }
 
-.card {
-  position: relative;
-  width: 100%;
-  max-width: 420px;
-  min-height: 600px;
-  background: radial-gradient(circle at top, #1f2937 0, #020617 70%);
-  border-radius: 24px;
-  padding: 40px 32px;
-  overflow: hidden;
-  box-shadow:
-    0 25px 60px rgba(0, 0, 0, 0.6),
-    0 0 0 1px rgba(148, 163, 184, 0.2);
-}
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-/* Animated gradient border glow */
-.card::before {
-  content: "";
-  position: absolute;
-  inset: -2px;
-  background: conic-gradient(
-    from 180deg,
-    #facc15,
-    #f97316,
-    #22d3ee,
-    #facc15
-  );
-  filter: blur(10px);
-  opacity: 0.45;
-  z-index: -1;
-  animation: rotateGlow 18s linear infinite;
-}
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top, rgba(59, 130, 246, 0.4), transparent 55%),
+        radial-gradient(circle at bottom, rgba(236, 72, 153, 0.35), transparent 55%),
+        radial-gradient(circle at left, rgba(234, 179, 8, 0.25), transparent 55%),
+        #020617;
+      color: var(--text-main);
+    }
 
-@keyframes rotateGlow {
-  to {
-    transform: rotate(360deg);
-  }
-}
+    .card {
+      position: relative;
+      width: 100%;
+      max-width: 560px;
+      border-radius: 28px;
+      padding: 26px 24px 24px;
+      background:
+        radial-gradient(circle at top left, rgba(96, 165, 250, 0.16), transparent 60%),
+        radial-gradient(circle at bottom right, rgba(244, 114, 182, 0.18), transparent 62%),
+        linear-gradient(to bottom right, rgba(15, 23, 42, 0.96), rgba(15, 23, 42, 0.98));
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      box-shadow:
+        0 32px 80px rgba(15, 23, 42, 0.95),
+        0 0 0 1px rgba(15, 23, 42, 0.9);
+      overflow: hidden;
+    }
 
-/* Floating confetti */
-.confetti {
-  position: absolute;
-  width: 3px;
-  height: 10px;
-  background: linear-gradient(to bottom, #f97316, #facc15);
-  border-radius: 999px;
-  opacity: 0;
-  animation: fall 8s linear infinite;
-}
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      border-radius: inherit;
+      background:
+        conic-gradient(
+          from 160deg,
+          rgba(56, 189, 248, 0.0),
+          rgba(56, 189, 248, 0.75),
+          rgba(236, 72, 153, 0.8),
+          rgba(234, 179, 8, 0.75),
+          rgba(56, 189, 248, 0.0)
+        );
+      opacity: 0.0;
+      filter: blur(20px);
+      pointer-events: none;
+      transition: opacity 320ms ease-out;
+      z-index: -1;
+    }
 
-.confetti:nth-child(1) { left: 10%; animation-delay: 0s; }
-.confetti:nth-child(2) { left: 20%; animation-delay: 1s; height: 8px; }
-.confetti:nth-child(3) { left: 30%; animation-delay: 2s; }
-.confetti:nth-child(4) { left: 50%; animation-delay: 4s; height: 7px; }
-.confetti:nth-child(5) { left: 60%; animation-delay: 5s; }
-.confetti:nth-child(6) { left: 70%; animation-delay: 6s; height: 8px; }
-.confetti:nth-child(7) { left: 90%; animation-delay: 7s; }
-.confetti:nth-child(8) { left: 15%; animation-delay: 2.5s; height: 13px; }
-.confetti:nth-child(9) { left: 35%; animation-delay: 3.5s; height: 11px; }
-.confetti:nth-child(10) { left: 55%; animation-delay: 1.5s; height: 9px; }
-.confetti:nth-child(11) { left: 75%; animation-delay: 0.5s; height: 12px; }
-.confetti:nth-child(12) { left: 85%; animation-delay: 5.5s; height: 8px; }
-.confetti:nth-child(13) { left: 25%; animation-delay: 3s; height: 10px; }
-.confetti:nth-child(14) { left: 45%; animation-delay: 6.5s; height: 9px; }
-.confetti:nth-child(15) { left: 65%; animation-delay: 4.5s; height: 11px; }
+    .card:hover::before {
+      opacity: 0.7;
+    }
 
-.confetti:nth-child(1) { left: 10%; animation-delay: 0s; }
-.confetti:nth-child(2) { left: 20%; animation-delay: 1s; height: 8px; }
-.confetti:nth-child(3) { left: 30%; animation-delay: 2s; }
-.confetti:nth-child(4) { left: 50%; animation-delay: 3s; }
-.confetti:nth-child(5) { left: 40%; animation-delay: 4s; height: 7px; }
-.confetti:nth-child(6) { left: 70%; animation-delay: 5s; }
-.confetti:nth-child(7) { left: 60%; animation-delay: 6s; height: 8px; }
-.confetti:nth-child(8) { left: 90%; animation-delay: 7s; }
+    .sparkles {
+      position: absolute;
+      inset: -120px;
+      background:
+        radial-gradient(circle at 10% 20%, rgba(129, 140, 248, 0.18) 0, transparent 55%),
+        radial-gradient(circle at 80% 0%, rgba(244, 114, 182, 0.18) 0, transparent 52%),
+        radial-gradient(circle at 0% 100%, rgba(56, 189, 248, 0.18) 0, transparent 55%);
+      opacity: 0.9;
+      mix-blend-mode: screen;
+      pointer-events: none;
+      z-index: -1;
+    }
 
-@keyframes fall {
-  0%, 100% { transform: translateY(10%); opacity: 0.9; }
-  50% { transform: translateY(-10%); opacity: 1; }
-}
+    .particle {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      border-radius: 999px;
+      background: rgba(248, 250, 252, 0.85);
+      box-shadow:
+        0 0 12px rgba(248, 250, 252, 0.9),
+        0 0 24px rgba(129, 140, 248, 0.65);
+      opacity: 0.85;
+    }
 
-.content {
-  margin-top: 8px;
-}
+    .p1 { top: 14%; left: 24%; }
+    .p2 { top: 18%; right: 22%; }
+    .p3 { bottom: 18%; left: 18%; }
+    .p4 { bottom: 14%; right: 24%; }
+    .p5 { top: 50%; left: 6%; }
+    .p6 { top: 50%; right: 6%; }
 
-.clink {
-  margin-top: 8px;
-}
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
 
-.glass::before {
-  content: "";
-  position: absolute;
-  inset: -2px;
-  background: conic-gradient(
-    from 180deg,
-    #facc15,
-    #f97316,
-    #22d3ee,
-    #facc15
-  );
-  filter: blur(10px);
-  opacity: 0.45;
-  z-index: -1;
-  animation: rotateGlow 18s linear infinite;
-}
+    .title-block {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
 
-@keyframes fizz {
-  0%, 100% { transform: translateY(10%); opacity: 0.9; }
-  50% { transform: translateY(-10%); opacity: 1; }
-}
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      align-self: flex-start;
+      padding: 2px 10px;
+      border-radius: 999px;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: radial-gradient(circle at top, rgba(234, 179, 8, 0.18), transparent 60%);
+      border: 1px solid rgba(234, 179, 8, 0.4);
+    }
 
-.stem {
-  width: 2px;
-  height: 12px;
-  background: #facc15;
-  margin: 0 auto;
-}
+    .eyebrow-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: radial-gradient(circle at center, #facc15, #f97316);
+      box-shadow: 0 0 10px rgba(250, 204, 21, 0.85);
+    }
 
-.base {
-  width: 12px;
-  height: 3px;
-  background: #facc15;
-  margin: 3px auto 0;
-  border-radius: 999px;
-}
+    .title {
+      font-size: clamp(22px, 3.1vw, 26px);
+      font-weight: 650;
+      letter-spacing: 0.02em;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
 
-.tagline {
-  font-size: 0.875rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: #facc15;
-  margin-bottom: 0.5rem;
-}
+    .title span.highlight {
+      background: linear-gradient(120deg, #f97316, #facc15, #38bdf8);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
 
-.subhead {
-  font-size: 0.875rem;
-  color: #94a3b8;
-  margin-bottom: 0.5rem;
-}
+    .year-pill {
+      font-size: 12px;
+      padding: 2px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      background: radial-gradient(circle at top left, rgba(148, 163, 184, 0.25), transparent 60%);
+      color: var(--text-muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
 
-.theme {
-  font-size: 1rem;
-  color: #fbbf24;
-  font-style: italic;
-  margin-bottom: 1.5rem;
-}
+    .year-pill-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: rgba(148, 163, 184, 0.9);
+    }
 
-.headline {
-  font-size: 2rem;
-  font-weight: 700;
-  margin-bottom: 1.5rem;
-  line-height: 1.2;
-  background: linear-gradient(135deg, #facc15, #fbbf24);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
+    .date-block {
+      text-align: right;
+    }
 
-.description {
-  font-size: 1rem;
-  line-height: 1.6;
-  color: #cbd5e1;
-  margin: 1.5rem 0;
-}
+    .date-main {
+      font-size: 17px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 550;
+      color: #e5e7eb;
+    }
 
-.hosts {
-  font-size: 1.125rem;
-  font-style: italic;
-  color: #f1f5f9;
-  padding: 1rem 1.5rem;
-  margin: 1.5rem 0;
-  background: rgba(249, 250, 251, 0.05);
-  border-left: 4px solid #facc15;
-  border-radius: 0 8px 8px 0;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
+    .date-sub {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
 
-.time-row {
-  margin: 1.5rem 0;
-}
+    .divider {
+      margin: 16px 0 18px;
+      height: 1px;
+      background: linear-gradient(
+        to right,
+        rgba(148, 163, 184, 0.0),
+        rgba(148, 163, 184, 0.75),
+        rgba(148, 163, 184, 0.0)
+      );
+      position: relative;
+    }
 
-.time-row strong {
-  display: block;
-  color: #facc15;
-  margin-bottom: 0.5rem;
-  font-size: 1.125rem;
-}
+    .divider::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: -4px;
+      transform: translateX(-50%);
+      width: 46px;
+      height: 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      background: radial-gradient(circle at center, rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.95));
+      box-shadow: 0 0 22px rgba(148, 163, 184, 0.65);
+    }
 
-.time-row span {
-  display: block;
-  color: #cbd5e1;
-  font-size: 0.95rem;
-  margin-bottom: 0.25rem;
-}
+    .body {
+      display: grid;
+      grid-template-columns: 1.4fr 1.1fr;
+      gap: 20px;
+    }
 
-.byob {
-  margin: 1.5rem 0;
-}
+    .section-heading {
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
 
-.byob strong {
-  display: block;
-  color: #facc15;
-  margin-bottom: 0.5rem;
-  font-size: 1.125rem;
-}
+    .description {
+      font-size: 13px;
+      line-height: 1.6;
+      color: #d1d5db;
+      margin-bottom: 16px;
+    }
 
-.dress-code {
-  margin: 1.5rem 0;
-}
+    .details-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 13px;
+    }
 
-.dress-code > strong {
-  display: block;
-  color: #facc15;
-  margin-bottom: 1rem;
-  font-size: 1.125rem;
-}
+    .details-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
 
-.dress-section {
-  margin-bottom: 1rem;
-  padding-left: 1rem;
-  color: #cbd5e1;
-  line-height: 1.6;
-}
+    .details-label {
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 11px;
+    }
 
-.dress-section strong {
-  color: #f1f5f9;
-}
+    .details-value {
+      color: #e5e7eb;
+      font-weight: 500;
+    }
 
-.footer {
-  margin-top: 2rem;
-  text-align: center;
-  color: #facc15;
-  font-size: 1.25rem;
-}
+    .details-note {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 12px;
+    }
 
-.clink {
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-  margin-top: 1rem;
-}
+    .right-column {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      align-items: stretch;
+    }
 
-.clink > div {
-  position: relative;
-}
+    .host-block {
+      border-radius: 18px;
+      padding: 10px 10px 10px 11px;
+      background: radial-gradient(circle at top left, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.96));
+      border: 1px solid rgba(148, 163, 184, 0.55);
+      display: flex;
+      align-items: center;
+      gap: 9px;
+    }
 
-.glass {
-  width: 14px;
-  height: 26px;
-  border-radius: 6px 6px 2px 2px;
-  border: 2px solid #facc15;
-  position: relative;
-  overflow: hidden;
-}
+    .avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      background:
+        radial-gradient(circle at 30% 20%, #facc15, transparent 55%),
+        radial-gradient(circle at 70% 80%, #f97316, transparent 60%),
+        radial-gradient(circle at 20% 80%, #38bdf8, transparent 60%);
+      box-shadow:
+        0 0 0 1px rgba(15, 23, 42, 0.9),
+        0 0 24px rgba(250, 204, 21, 0.65);
+      position: relative;
+      flex-shrink: 0;
+    }
 
-width: 14px;
-height: 26px;
-border-radius: 6px 6px 2px 2px;
-border: 2px solid #facc15;
-position: relative;
-overflow: hidden;
+    .avatar::after {
+      content: "C";
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 17px;
+      color: #020617;
+      text-shadow: 0 0 14px rgba(15, 23, 42, 0.9);
+    }
 
-.stem {
-  width: 2px;
-  height: 12px;
-  background: #facc15;
-  margin: 0 auto;
-}
+    .host-text {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
 
-.base {
-  width: 12px;
-  height: 3px;
-  background: #facc15;
-  margin: 3px auto 0;
-  border-radius: 999px;
-}
+    .host-label {
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
 
-@media (max-width: 480px) {
-  body {
-    padding: 10px;
-  }
-  .card {
-    padding: 32px 24px;
-  }
-  .headline {
-    font-size: 1.6rem;
-  }
-  .theme {
-    font-size: 1rem;
-  }
-}
-</style>
+    .host-name {
+      font-size: 13px;
+      font-weight: 550;
+      color: #e5e7eb;
+    }
+
+    .actions {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .primary-button {
+      position: relative;
+      border: 0;
+      border-radius: 999px;
+      padding: 10px 14px;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      cursor: pointer;
+      color: #020617;
+      background: linear-gradient(120deg, #f97316, #facc15, #22c55e);
+      box-shadow:
+        0 14px 30px rgba(15, 23, 42, 0.8),
+        0 0 0 1px rgba(248, 250, 252, 0.2);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .primary-button span.spark {
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      background:
+        radial-gradient(circle at center, #fefce8, #facc15);
+      box-shadow:
+        0 0 0 1px rgba(15, 23, 42, 0.8),
+        0 0 18px rgba(250, 204, 21, 0.9);
+      position: relative;
+    }
+
+    .primary-button span.spark::before,
+    .primary-button span.spark::after {
+      content: "";
+      position: absolute;
+      inset: 3px;
+      border-radius: inherit;
+      border: 1px solid rgba(15, 23, 42, 0.6);
+    }
+
+    .primary-button-label {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      text-align: left;
+    }
+
+    .primary-main {
+      font-size: 11px;
+    }
+
+    .primary-sub {
+      font-size: 10px;
+      opacity: 0.85;
+      text-transform: none;
+    }
+
+    .primary-button:hover {
+      filter: brightness(1.04);
+      transform: translateY(-1px);
+    }
+
+    .secondary-link {
+      font-size: 11px;
+      color: var(--text-muted);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      justify-content: center;
+    }
+
+    .secondary-link span.dot {
+      width: 4px;
+      height: 4px;
+      border-radius: 999px;
+      background: rgba(148, 163, 184, 0.85);
+    }
+
+    .footer {
+      margin-top: 18px;
+      padding-top: 12px;
+      border-top: 1px dashed rgba(148, 163, 184, 0.45);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .footer-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .confetti-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: linear-gradient(120deg, #f97316, #facc15);
+      box-shadow: 0 0 10px rgba(250, 204, 21, 0.9);
+    }
+
+    .footer-right {
+      text-align: right;
+    }
+
+    .mini-tagline {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+
+    .mini-tagline span {
+      color: var(--accent);
+    }
+
+    .instructions {
+      margin-top: 8px;
+      font-size: 10px;
+      color: var(--text-muted);
+    }
+
+    @media (max-width: 640px) {
+      body {
+        padding: 16px;
+      }
+
+      .card {
+        padding: 20px 18px 18px;
+        border-radius: 22px;
+      }
+
+      .header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      .date-block {
+        text-align: left;
+      }
+
+      .body {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+
+      .footer {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .footer-right {
+        text-align: left;
+      }
+    }
+  </style>
 </head>
+
 <body>
   <div class="card">
-    <!-- Floating confetti -->
-    <div class="confetti"></div>
-    <div class="confetti"></div>
-    <div class="confetti"></div>
-    <div class="confetti"></div>
-    <div class="confetti"></div>
-    <div class="confetti"></div>
-    <div class="confetti"></div>
-    <div class="confetti"></div>
-    <div class="confetti"></div>
-    <div class="confetti"></div>
-    <div class="confetti"></div>
-    <div class="confetti"></div>
-    <div class="confetti"></div>
-    <div class="confetti"></div>
-    <div class="confetti"></div>
-
-    <div class="content">
-      <div>
-        <div class="tagline">Ring in the new year</div>
-        <div class="subhead">Austin, Texas</div>
-        <div class="theme">"All That Glitters Is Gold"</div>
-
-        <div class="headline">New Year's Eve Party 2025</div>
-        <div>
-          <strong>Location</strong>
-          Cash's House<br />
-          13130 Pond Springs Rd, #3312<br />
-          Austin, TX 78729
-        </div>
-
-        <div class="description">Join us for a lovely, gilded evening to ring in the New Year on the rooftop, listen to great music, and make great memories</div>
-        <div class="hosts">Your hosts: Cash Conway & Andrew Kovach</div>
-
-        <div class="time-row">
-          <strong>Date & Time</strong>
-          <span>December 31</span>
-          <span>8:00 PM – 1:00 AM</span>
-        </div>
-
-        <div class="byob">
-          <strong>Drinks</strong>
-          BYOB, but there will be a batched cocktail and bubbly ready for midnight.
-        </div>
-
-        <div class="dress-code">
-          <strong>Dress Code</strong>
-          <div class="dress-section">
-            <strong>Ladies:</strong><br />
-            Cocktail or party attire encouraged. Sequins, metallics, champagne tones, or gold accents are perfect. Dressy but fun. Whatever makes you feel great ringing in the New Year.
-          </div>
-          <div class="dress-section">
-            <strong>Gentlemen:</strong><br />
-            No suits required. A nice button-down with slacks or dark jeans is perfect. Feel free to add a champagne, metallic, or gold touch—shirt, shoes, or accessory.
-          </div>
-        </div>
-      </div>
+    <div class="sparkles">
+      <div class="particle p1"></div>
+      <div class="particle p2"></div>
+      <div class="particle p3"></div>
+      <div class="particle p4"></div>
+      <div class="particle p5"></div>
+      <div class="particle p6"></div>
     </div>
 
-    <div class="footer">
-      See you at midnight
-      <div class="clink">
-        <div>
-          <div class="glass"></div>
+    <header class="header">
+      <div class="title-block">
+        <div class="eyebrow">
+          <span class="eyebrow-dot"></span>
+          New Year’s Eve
         </div>
-        <div>
-          <div class="glass"></div>
-          <div class="stem"></div>
-          <div class="base"></div>
+        <h1 class="title">
+          <span>NYE at</span>
+          <span class="highlight">Cash’s Place</span>
+        </h1>
+        <div class="year-pill">
+          <span class="year-pill-dot"></span>
+          Ringing in 2026 together
         </div>
       </div>
-    </div>
+
+      <div class="date-block">
+        <div class="date-main">Tuesday · December 31</div>
+        <div class="date-sub">Doors at 8:00 PM · Countdown at midnight</div>
+      </div>
+    </header>
+
+    <div class="divider"></div>
+
+    <main class="body">
+      <section>
+        <div class="section-heading">Party details</div>
+        <p class="description">
+          Come hang out, toast the year, and yell at the TV when the ball drops.  
+          Expect good music, snacks, drinks, board games, and whatever chaos 2026 deserves.
+        </p>
+
+        <ul class="details-list">
+          <li class="details-item">
+            <span class="details-label">Location</span>
+            <span class="details-value">Cash’s apartment · Austin, TX</span>
+          </li>
+          <li class="details-item">
+            <span class="details-label">Time</span>
+            <span class="details-value">8:00 PM until after midnight</span>
+          </li>
+          <li class="details-item">
+            <span class="details-label">Food & drinks</span>
+            <span class="details-value">Snacks & some drinks provided · BYOB welcome</span>
+          </li>
+        </ul>
+
+        <p class="details-note">
+          If you want to bring something (snack, drink, game), go for it—but zero pressure.
+        </p>
+      </section>
+
+      <aside class="right-column">
+        <div class="host-block">
+          <div class="avatar"></div>
+          <div class="host-text">
+            <div class="host-label">Host</div>
+            <div class="host-name">Cash</div>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button class="primary-button">
+            <span class="spark"></span>
+            <span class="primary-button-label">
+              <span class="primary-main">RSVP via text</span>
+              <span class="primary-sub">Text Cash if you’re in or thinking about it</span>
+            </span>
+          </button>
+
+          <a class="secondary-link" href="#">
+            <span class="dot"></span>
+            Need the address again? Text or DM Cash.
+          </a>
+        </div>
+      </aside>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-left">
+        <span class="confetti-dot"></span>
+        <span>No dress code. Just show up however you feel like ending 2025.</span>
+      </div>
+      <div class="footer-right">
+        <div class="mini-tagline">
+          Small crew · <span>good vibes only</span>
+        </div>
+        <div class="instructions">
+          Screenshot or share this link if someone asks for details.
+        </div>
+      </div>
+    </footer>
   </div>
 </body>
 </html>
