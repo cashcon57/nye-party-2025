@@ -25,7 +25,7 @@ body {
 .card {
   position: relative;
   width: 100%;
-  max-width: 420px;
+  max-width: 480px;
   background: radial-gradient(circle at top, #1f2937 0%, #020617 70%);
   border-radius: 24px;
   padding: 40px 32px;
@@ -61,32 +61,37 @@ body {
   height: 10px;
   background: linear-gradient(to bottom, #facc15, #f97316);
   border-radius: 999px;
-  opacity: 0.7;
+  opacity: 0.8;
   z-index: 1;
-  animation: fall 6s linear infinite;
+  animation: fall 8s linear infinite;
 }
 
 @keyframes fall {
   0% {
-    transform: translateY(-100%) rotate(0deg);
+    transform: translateY(var(--start-y)) translateX(0) rotate(0deg);
     opacity: 1;
   }
   100% {
-    transform: translateY(600px) rotate(360deg);
+    transform: translateY(700px) translateX(var(--drift-x)) rotate(720deg);
     opacity: 0;
   }
 }
 
-.confetti:nth-child(1) { left: 10%; animation-delay: 0s; background: #facc15; }
-.confetti:nth-child(2) { left: 20%; animation-delay: 1s; background: #f97316; }
-.confetti:nth-child(3) { left: 30%; animation-delay: 2s; background: #fbbf24; }
-.confetti:nth-child(4) { left: 40%; animation-delay: 0.5s; background: #fb923c; }
-.confetti:nth-child(5) { left: 50%; animation-delay: 1.5s; background: #fcd34d; }
-.confetti:nth-child(6) { left: 60%; animation-delay: 2.5s; background: #fdba74; }
-.confetti:nth-child(7) { left: 70%; animation-delay: 0.8s; background: #facc15; }
-.confetti:nth-child(8) { left: 80%; animation-delay: 1.8s; background: #f97316; }
-.confetti:nth-child(9) { left: 90%; animation-delay: 2.2s; background: #fbbf24; }
-.confetti:nth-child(10) { left: 15%; animation-delay: 3s; background: #fb923c; }
+.confetti:nth-child(1) { left: 8%; --start-y: -80px; --drift-x: -20px; animation-delay: 0s; background: #facc15; }
+.confetti:nth-child(2) { left: 18%; --start-y: -150px; --drift-x: 15px; animation-delay: 1.2s; background: #f97316; }
+.confetti:nth-child(3) { left: 28%; --start-y: -200px; --drift-x: -10px; animation-delay: 2.4s; background: #fbbf24; }
+.confetti:nth-child(4) { left: 38%; --start-y: -50px; --drift-x: 25px; animation-delay: 0.8s; background: #fb923c; }
+.confetti:nth-child(5) { left: 48%; --start-y: -120px; --drift-x: -15px; animation-delay: 1.8s; background: #fcd34d; }
+.confetti:nth-child(6) { left: 58%; --start-y: -180px; --drift-x: 20px; animation-delay: 3.2s; background: #fdba74; }
+.confetti:nth-child(7) { left: 68%; --start-y: -90px; --drift-x: -18px; animation-delay: 1.4s; background: #facc15; }
+.confetti:nth-child(8) { left: 78%; --start-y: -160px; --drift-x: 12px; animation-delay: 2.8s; background: #f97316; }
+.confetti:nth-child(9) { left: 88%; --start-y: -110px; --drift-x: -22px; animation-delay: 0.6s; background: #fbbf24; }
+.confetti:nth-child(10) { left: 14%; --start-y: -140px; --drift-x: 18px; animation-delay: 3.6s; background: #fb923c; }
+.confetti:nth-child(11) { left: 24%; --start-y: -70px; --drift-x: -12px; animation-delay: 0.4s; background: #fcd34d; }
+.confetti:nth-child(12) { left: 34%; --start-y: -190px; --drift-x: 14px; animation-delay: 2.2s; background: #fdba74; }
+.confetti:nth-child(13) { left: 44%; --start-y: -100px; --drift-x: -16px; animation-delay: 1.6s; background: #facc15; }
+.confetti:nth-child(14) { left: 54%; --start-y: -170px; --drift-x: 22px; animation-delay: 3.0s; background: #f97316; }
+.confetti:nth-child(15) { left: 64%; --start-y: -60px; --drift-x: -14px; animation-delay: 0.2s; background: #fbbf24; }
 
 .header {
   text-align: center;
@@ -160,6 +165,27 @@ body {
   color: #e5e7eb;
 }
 
+.dress-code-items {
+  margin-top: 12px;
+}
+
+.dress-code-item {
+  margin-bottom: 12px;
+}
+
+.dress-code-subtitle {
+  font-size: 14px;
+  font-weight: 600;
+  color: #fbbf24;
+  margin-bottom: 4px;
+}
+
+.dress-code-description {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #d1d5db;
+}
+
 .separator {
   height: 1px;
   background: linear-gradient(90deg, transparent, #374151, transparent);
@@ -203,6 +229,11 @@ body {
   <div class="confetti"></div>
   <div class="confetti"></div>
   <div class="confetti"></div>
+  <div class="confetti"></div>
+  <div class="confetti"></div>
+  <div class="confetti"></div>
+  <div class="confetti"></div>
+  <div class="confetti"></div>
   
   <div class="header">
     <div class="tagline">Ring in the New Year</div>
@@ -236,6 +267,26 @@ body {
       <div class="detail-label">Drinks</div>
       <div class="detail-text">
         BYOB, but there will be a batched cocktail and bubbly ready for midnight.
+      </div>
+    </div>
+    
+    <div class="separator"></div>
+    
+    <div class="detail-section">
+      <div class="detail-label">Dress Code Suggestions</div>
+      <div class="dress-code-items">
+        <div class="dress-code-item">
+          <div class="dress-code-subtitle">Ladies:</div>
+          <div class="dress-code-description">
+            Cocktail or party attire encouraged. Sequins, metallics, champagne tones, or gold accents are perfect. Dressy but fun. Whatever makes you feel great ringing in the New Year.
+          </div>
+        </div>
+        <div class="dress-code-item">
+          <div class="dress-code-subtitle">Gentlemen:</div>
+          <div class="dress-code-description">
+            No suits required. A nice button-down with slacks or dark jeans is perfect. Feel free to add a champagne, metallic, or gold touch—shirt, shoes, or accessory.
+          </div>
+        </div>
       </div>
     </div>
   </div>
