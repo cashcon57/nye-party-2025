@@ -1,6 +1,6 @@
 New Year's Eve Party 2025 Invite 🥂✨
 
-This repository hosts the interactive, responsive web invitation for Andrew & Cash's NYE Party. The theme is "All That Glitters Is Gold", featuring a midnight blue and gold luxury aesthetic.
+This repository hosts the interactive, responsive web invitation for Andrew & Cash's NYE Party, created by Cash. The theme is "All That Glitters Is Gold", featuring a midnight blue and gold luxury aesthetic.
 
 🌟 Features
 
