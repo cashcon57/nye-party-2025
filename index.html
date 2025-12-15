@@ -65,7 +65,7 @@
       margin: 0;
       padding: 0;
       width: 100%;
-      height: 100%;
+      /* height: 100%; REMOVED to fix background seam */
     }
 
     body {
@@ -81,6 +81,7 @@
         radial-gradient(circle at 50% 0%, rgba(234, 179, 8, 0.15), transparent 60%),
         radial-gradient(circle at 0% 100%, rgba(161, 98, 7, 0.1), transparent 50%),
         url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23eab308' fill-opacity='0.05' font-family='serif' font-size='28'%3E%3Ctext x='5' y='25'%3E*%3C/text%3E%3Ctext x='35' y='55'%3E*%3C/text%3E%3C/g%3E%3C/svg%3E");
+      background-attachment: fixed; /* FIXED: Keeps background continuous during scroll */
       color: var(--text-main);
       overflow-x: hidden;
       perspective: 1000px;
@@ -144,9 +145,9 @@
       position: fixed;
       top: 0;
       left: 0;
-      width: 100%; /* Changed from 100vw to avoid scrollbar width issues */
+      width: 100%; /* Fixes horizontal scrollbar issues on desktop */
       height: 100%;
-      height: 100dvh; /* Mobile viewport fix */
+      height: 100dvh; /* Fixes centering on mobile with address bars */
       background-color: var(--bg);
       z-index: 99999;
       display: flex;
@@ -154,8 +155,9 @@
       align-items: center;
       justify-content: center;
       animation: overlayFadeOut 4s ease-in-out forwards;
-      touch-action: none;
+      touch-action: none; /* Prevents touch scrolling on the overlay */
       overflow: hidden;
+      /* Removed pointer-events: none so it blocks interaction with background */
     }
 
     .intro-text {
@@ -1038,11 +1040,6 @@
             </svg>
             Add to Spotify Playlist
           </a>
-
-          <!-- Notification Button -->
-          <button class="secondary-button" onclick="enableNotifications()" id="notify-btn">
-            Get Party Updates 🔔
-          </button>
         </div>
       </aside>
     </main>
@@ -1221,41 +1218,6 @@ END:VCALENDAR`;
       document.body.removeChild(dummy);
       alert('Address copied to clipboard!');
     }
-
-    // 8. Notifications Logic
-    function enableNotifications() {
-      if (!("Notification" in window)) {
-        alert("This browser does not support desktop notification");
-      } else if (Notification.permission === "granted") {
-        new Notification("You're all set!", { 
-          body: "We'll let you know about any big updates.",
-          icon: "data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🥂</text></svg>"
-        });
-      } else if (Notification.permission !== "denied") {
-        Notification.requestPermission().then(function (permission) {
-          if (permission === "granted") {
-            new Notification("Notifications Enabled!", { 
-              body: "Can't wait to see you on NYE!",
-              icon: "data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🥂</text></svg>"
-            });
-          }
-        });
-      }
-    }
-
-    // Check for Post-Party Thank You (Runs on page load)
-    window.addEventListener('load', () => {
-      // Check if date is after Jan 1, 2026
-      const partyDate = new Date('2026-01-01T12:00:00'); // Noon on Jan 1st
-      const now = new Date();
-
-      if (now > partyDate && Notification.permission === "granted") {
-        new Notification("Happy New Year!", {
-          body: "Thank you so much for celebrating with us! - Andrew & Cash",
-          icon: "data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✨</text></svg>"
-        });
-      }
-    });
   </script>
 </body>
 </html>
