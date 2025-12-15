@@ -61,10 +61,18 @@
       color: #000;
     }
 
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+    }
+
     body {
       min-height: 100vh;
       display: flex;
-      align-items: center;
+      /* FIXED: Changed from center to flex-start to prevent top clipping */
+      align-items: flex-start; 
       justify-content: center;
       padding: 24px;
       font-family: var(--font-body);
@@ -76,6 +84,8 @@
       color: var(--text-main);
       overflow-x: hidden;
       perspective: 1000px;
+      /* Locked scrolling initially for intro */
+      overflow-y: hidden;
     }
 
     /* Force override for any auto-detected links on mobile */
@@ -132,15 +142,19 @@
     /* Overlay */
     #intro-overlay {
       position: fixed;
-      inset: 0;
+      top: 0;
+      left: 0;
+      width: 100%; /* Changed from 100vw to avoid scrollbar width issues */
+      height: 100%;
+      height: 100dvh; /* Mobile viewport fix */
       background-color: var(--bg);
-      z-index: 9999;
+      z-index: 99999;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       animation: overlayFadeOut 4s ease-in-out forwards;
-      pointer-events: none;
+      touch-action: none;
       overflow: hidden;
     }
 
@@ -187,6 +201,8 @@
       border-radius: 28px;
       /* Increased top padding to 50px to prevent Share button overlap */
       padding: 50px 28px 32px;
+      /* FIXED: Added margin auto for safe vertical centering */
+      margin: auto;
       background: var(--card-bg);
       border: 1px solid var(--border-gold);
       box-shadow:
@@ -988,7 +1004,7 @@
       <aside class="right-column">
         <div class="host-block">
           <div class="avatar">
-            <img src="hosts.jpg" alt="Andrew & Cash">
+            <img src="20251212_182720.jpg" alt="Andrew & Cash">
           </div>
           <div class="host-text">
             <div class="host-label">Hosts</div>
@@ -1022,6 +1038,11 @@
             </svg>
             Add to Spotify Playlist
           </a>
+
+          <!-- Notification Button -->
+          <button class="secondary-button" onclick="enableNotifications()" id="notify-btn">
+            Get Party Updates 🔔
+          </button>
         </div>
       </aside>
     </main>
@@ -1075,6 +1096,11 @@
         bubble.style.setProperty('--drift', `${drift}px`);
         bubbleContainer.appendChild(bubble);
       }
+
+      // Unlock body scroll after intro finishes (4s)
+      setTimeout(() => {
+        document.body.style.overflowY = 'auto'; 
+      }, 4000);
     });
 
     // 2. Countdown Timer
@@ -1195,6 +1221,41 @@ END:VCALENDAR`;
       document.body.removeChild(dummy);
       alert('Address copied to clipboard!');
     }
+
+    // 8. Notifications Logic
+    function enableNotifications() {
+      if (!("Notification" in window)) {
+        alert("This browser does not support desktop notification");
+      } else if (Notification.permission === "granted") {
+        new Notification("You're all set!", { 
+          body: "We'll let you know about any big updates.",
+          icon: "data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🥂</text></svg>"
+        });
+      } else if (Notification.permission !== "denied") {
+        Notification.requestPermission().then(function (permission) {
+          if (permission === "granted") {
+            new Notification("Notifications Enabled!", { 
+              body: "Can't wait to see you on NYE!",
+              icon: "data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🥂</text></svg>"
+            });
+          }
+        });
+      }
+    }
+
+    // Check for Post-Party Thank You (Runs on page load)
+    window.addEventListener('load', () => {
+      // Check if date is after Jan 1, 2026
+      const partyDate = new Date('2026-01-01T12:00:00'); // Noon on Jan 1st
+      const now = new Date();
+
+      if (now > partyDate && Notification.permission === "granted") {
+        new Notification("Happy New Year!", {
+          body: "Thank you so much for celebrating with us! - Andrew & Cash",
+          icon: "data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✨</text></svg>"
+        });
+      }
+    });
   </script>
 </body>
 </html>
