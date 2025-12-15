@@ -12,7 +12,7 @@ Interactive Modals: Popups for "Directions" and "Dress Code" to keep the main vi
 
 Smart Actions:
 
-RSVP via Text: Opens the user's SMS app pre-filled with a message to Cash.
+RSVP via Text: Opens the user's SMS app pre-filled with a message to both Andrew & Cash.
 
 Spotify Integration: Link to add songs to the collaborative playlist.
 
