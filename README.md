@@ -22,7 +22,7 @@ Social Preview: Configured with Open Graph tags for beautiful link previews in i
 
 index.html - The main HTML/CSS code for the invite.
 
-20251212_182720.jpg - (Required) The photo of Andrew & Cash displayed in the "Hosts" section.
+hosts.jpg - (Required) The photo of Andrew & Cash displayed in the "Hosts" section.
 
 preview.jpg - (Required) The Open Graph preview image shown when the link is shared via text or social media.
 
