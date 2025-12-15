@@ -84,6 +84,85 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
+    /* Intro Overlay Animations */
+    @keyframes overlayFadeOut {
+      0%, 85% { opacity: 1; visibility: visible; }
+      100% { opacity: 0; visibility: hidden; }
+    }
+
+    @keyframes introTextAnim {
+      0% { opacity: 0; transform: translateY(10px) scale(0.95); }
+      20% { opacity: 1; transform: translateY(0) scale(1); }
+      80% { opacity: 1; transform: translateY(0) scale(1.05); }
+      100% { opacity: 0; transform: translateY(-20px) scale(1.1); }
+    }
+
+    @keyframes riseUp {
+      0% {
+        bottom: -20px;
+        transform: translateX(0) scale(0.5);
+        opacity: 0;
+      }
+      10% {
+        opacity: 1;
+      }
+      100% {
+        bottom: 110vh;
+        transform: translateX(var(--drift)) scale(1.5);
+        opacity: 0;
+      }
+    }
+
+    #intro-overlay {
+      position: fixed;
+      inset: 0;
+      background-color: var(--bg);
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      animation: overlayFadeOut 4s ease-in-out forwards;
+      pointer-events: none;
+      overflow: hidden; /* Capture bubbles */
+    }
+
+    .intro-text {
+      color: var(--gold-2);
+      font-family: system-ui, -apple-system, serif;
+      font-size: clamp(22px, 5vw, 30px);
+      font-weight: 300;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      text-align: center;
+      animation: introTextAnim 4s ease-in-out forwards;
+      padding: 20px;
+      text-shadow: 0 0 25px rgba(234, 179, 8, 0.6);
+      z-index: 10;
+      position: relative;
+    }
+
+    /* Bubbles Container */
+    #intro-bubbles {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .intro-bubble {
+      position: absolute;
+      bottom: -20px;
+      background: radial-gradient(circle at 30% 30%, #fff, var(--gold-2));
+      border-radius: 50%;
+      box-shadow: 0 0 10px rgba(234, 179, 8, 0.4);
+      opacity: 0;
+      animation: riseUp var(--duration) ease-in infinite;
+      animation-delay: var(--delay);
+    }
+
     .card {
       position: relative;
       width: 100%;
@@ -97,7 +176,8 @@
         0 0 0 1px rgba(234, 179, 8, 0.1);
       overflow: hidden;
       backdrop-filter: blur(12px);
-      animation: fadeIn 0.8s ease-out;
+      /* Added delay to wait for intro animation */
+      animation: fadeIn 1s ease-out 3.5s backwards;
     }
 
     /* Animated Gold Border Glow */
@@ -616,6 +696,12 @@
 </head>
 
 <body>
+  <!-- Intro Message Overlay -->
+  <div id="intro-overlay">
+    <div class="intro-text">You've been cordially invited to...</div>
+    <div id="intro-bubbles"></div>
+  </div>
+
   <div class="card">
     <!-- Directions Modal Overlay -->
     <div id="directions-modal" class="modal-overlay" onclick="closeModal(event)">
@@ -792,6 +878,33 @@
     function closeModalExplicitly(modalId) {
       document.getElementById(modalId).classList.remove('open');
     }
+
+    // Script to generate champagne bubbles for the intro
+    document.addEventListener('DOMContentLoaded', () => {
+      const bubbleContainer = document.getElementById('intro-bubbles');
+      const bubbleCount = 50; // Number of bubbles
+
+      for (let i = 0; i < bubbleCount; i++) {
+        const bubble = document.createElement('div');
+        bubble.classList.add('intro-bubble');
+        
+        // Randomize bubble properties
+        const size = Math.random() * 8 + 4; // 4px to 12px
+        const left = Math.random() * 100; // 0% to 100% width
+        const duration = Math.random() * 2 + 1.5; // 1.5s to 3.5s rise time
+        const delay = Math.random() * 2; // Start randomly within first 2s
+        const drift = (Math.random() * 100) - 50; // Drift left or right up to 50px
+
+        bubble.style.width = `${size}px`;
+        bubble.style.height = `${size}px`;
+        bubble.style.left = `${left}%`;
+        bubble.style.setProperty('--duration', `${duration}s`);
+        bubble.style.setProperty('--delay', `${delay}s`);
+        bubble.style.setProperty('--drift', `${drift}px`);
+
+        bubbleContainer.appendChild(bubble);
+      }
+    });
   </script>
 </body>
 </html>
