@@ -1,54 +1,56 @@
 New Year's Eve Party 2025 Invite 🥂✨
 
-This repository hosts the interactive, responsive web invitation for Andrew & Cash's NYE Party, created by Cash. The theme is "All That Glitters Is Gold", featuring a midnight blue and gold luxury aesthetic.
+This repository hosts the interactive, responsive web invitation for Andrew & Cash's NYE Party. The theme is "All That Glitters Is Gold", featuring a midnight blue and gold luxury aesthetic with high-end animations.
 
 🌟 Features
 
-Responsive Design: Optimized for both mobile devices and desktops.
+Immersive Intro: "Champagne Fizz" overlay with rising bubbles and entrance animation.
+
+Responsive Design: Optimized for all devices with a fixed starry background (no seams).
 
 Dynamic Animations:
 
-"Champagne Fizz" intro overlay with rising bubbles.
+3D Card Tilt: Physics-based smooth tilting effect on mouse movement.
 
-3D Card Tilt effect on mouse movement (physics-based smoothing).
+Confetti Burst: Triggers when guests click the RSVP button.
 
-Gold shimmer text and floating background particles.
-
-Confetti burst upon clicking RSVP.
+Gold Shimmer: animated text gradients and floating background particles.
 
 Smart Interactions:
 
-RSVP via Text: Composes a group SMS to both hosts automatically.
+Group RSVP: One-tap button composes a group SMS to both hosts.
 
 Live Countdown: Ticks down to Midnight, Jan 1, 2026.
 
-Add to Calendar: Direct links for Google Calendar and Apple Calendar (.ics).
+Calendar Integration: Direct links for Google Calendar and Apple Calendar (.ics).
 
-Maps & Copy: Clickable address opens Google Maps; copy button for clipboard access.
+Navigation: Clickable address opens Google Maps; dedicated "Copy" button for clipboard.
 
-Share Button: Uses the native device share sheet to send the link.
+Share: Native share sheet integration for easily sending the invite to others.
 
-Spotify Integration: Link to the collaborative playlist.
+Spotify: Direct link to the collaborative party playlist.
 
-Local Notifications: "Time-bomb" notification logic that thanks guests for attending if they visit the site after Jan 1, 2026 (requires user permission).
-
-Social Preview: Optimized Open Graph tags for beautiful link previews in iMessage/WhatsApp.
+Social Preview: Optimized Open Graph tags ensuring the link looks beautiful when texted or shared on social media.
 
 📁 File Structure
 
 index.html - The main application code containing HTML, CSS, and JavaScript.
 
-og-preview.html - A utility file used to generate the social media preview image.
+og-preview.html - A utility file used to generate the social media preview image text/layout.
 
-20251212_182720.jpg - (Required) The photo of Andrew & Cash displayed in the "Hosts" section.
+hosts.jpg - (Required) The photo of Andrew & Cash displayed in the "Hosts" section.
 
 preview.jpg - (Required) The image shown when the link is shared via text or social media.
 
 🛠️ Customization & Updates
 
-1. Generating the Link Preview
+1. Host Photo
 
-To ensure the link looks great when texted:
+Ensure you have a photo of the hosts named hosts.jpg uploaded to the root of this repository.
+
+2. Generating the Link Preview
+
+To ensure the link looks great when texted (iMessage/WhatsApp):
 
 Open og-preview.html in your web browser on a desktop.
 
@@ -58,28 +60,22 @@ Save the screenshot as preview.jpg.
 
 Upload it to this repository.
 
-2. Changing Text/Details
+3. Modifying Text/Details
 
 Edit index.html directly. Search for specific text (e.g., "13130 Pond Springs") to update the address, time, or message.
 
-3. Modifying the RSVP Number
+4. Modifying the RSVP Number
 
 To update who receives the RSVP texts, search for sms: in index.html:
 
 <a href="sms:9258901507,5126569229?body=Can't wait for NYE!" ... >
 
 
-Replace the numbers with your preferred contacts, separated by a comma.
-
-4. Updating the Host Photo
-
-Rename your new photo to 20251212_182720.jpg (or update the filename in the HTML).
-
-Upload it to the repository to overwrite the existing file.
+Replace the numbers with your preferred contacts, separated by a comma (no spaces).
 
 🚀 Deployment
 
-This project is designed to be hosted on GitHub Pages, and is currently formatted for a New Year's Eve party I'm hosting/hosted, but can be modified for your own purposes.
+This project is designed to be hosted on GitHub Pages.
 
 Go to your repository Settings.
 
