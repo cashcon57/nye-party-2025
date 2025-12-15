@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <title>New Year's Eve Party 2025</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Prevents iOS/Android from turning the address/phone into blue links automatically -->
+  <meta name="format-detection" content="telephone=no, date=no, email=no, address=no">
 
   <style>
     :root {
@@ -39,6 +41,12 @@
         url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23eab308' fill-opacity='0.05' font-family='serif' font-size='28'%3E%3Ctext x='5' y='25'%3E*%3C/text%3E%3Ctext x='35' y='55'%3E*%3C/text%3E%3C/g%3E%3C/svg%3E");
       color: var(--text-main);
       overflow-x: hidden;
+    }
+
+    /* Force override for any auto-detected links on mobile */
+    a[href^="tel"], a[href^="sms"], a[x-apple-data-detectors] {
+      color: inherit !important;
+      text-decoration: none !important;
     }
 
     /* Keyframes for Animations */
@@ -404,6 +412,7 @@
       box-shadow: 0 4px 20px rgba(170, 119, 28, 0.4);
       transition: transform 0.2s, box-shadow 0.2s;
       overflow: hidden;
+      text-decoration: none;
     }
 
     .primary-button::after {
@@ -718,13 +727,13 @@
         </div>
 
         <div class="actions">
-          <button class="primary-button">
+          <a href="sms:9258901507?body=Can't wait for NYE!" class="primary-button">
             <span class="spark"></span>
             <span class="primary-button-label">
               <span class="primary-main">RSVP via text</span>
               <span class="primary-sub">Text us if you’re in or thinking about it</span>
             </span>
-          </button>
+          </a>
 
           <!-- Directions button -->
           <button class="secondary-button" onclick="openModal('directions-modal')">
