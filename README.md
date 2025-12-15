@@ -1,57 +1,89 @@
 New Year's Eve Party 2025 Invite 🥂✨
 
-This repository hosts the responsive web invitation for Andrew & Cash's NYE Party. The theme is "All That Glitters Is Gold".
+This repository hosts the interactive, responsive web invitation for Andrew & Cash's NYE Party. The theme is "All That Glitters Is Gold", featuring a midnight blue and gold luxury aesthetic.
 
 🌟 Features
 
-Responsive Design: Looks great on mobile and desktop.
+Responsive Design: Optimized for both mobile devices and desktops.
 
-Dynamic Animations: CSS-based shimmer text, floating particles, and entrance animations.
+Dynamic Animations:
 
-Interactive Modals: Popups for "Directions" and "Dress Code" to keep the main view clean.
+"Champagne Fizz" intro overlay with rising bubbles.
 
-Smart Actions:
+3D Card Tilt effect on mouse movement (physics-based smoothing).
 
-RSVP via Text: Opens the user's SMS app pre-filled with a message to both Andrew & Cash.
+Gold shimmer text and floating background particles.
 
-Spotify Integration: Link to add songs to the collaborative playlist.
+Confetti burst upon clicking RSVP.
 
-Social Preview: Configured with Open Graph tags for beautiful link previews in iMessage/WhatsApp.
+Smart Interactions:
+
+RSVP via Text: Composes a group SMS to both hosts automatically.
+
+Live Countdown: Ticks down to Midnight, Jan 1, 2026.
+
+Add to Calendar: Direct links for Google Calendar and Apple Calendar (.ics).
+
+Maps & Copy: Clickable address opens Google Maps; copy button for clipboard access.
+
+Share Button: Uses the native device share sheet to send the link.
+
+Spotify Integration: Link to the collaborative playlist.
+
+Local Notifications: "Time-bomb" notification logic that thanks guests for attending if they visit the site after Jan 1, 2026 (requires user permission).
+
+Social Preview: Optimized Open Graph tags for beautiful link previews in iMessage/WhatsApp.
 
 📁 File Structure
 
-index.html - The main HTML/CSS code for the invite.
+index.html - The main application code containing HTML, CSS, and JavaScript.
 
-hosts.jpg - (Required) The photo of Andrew & Cash displayed in the "Hosts" section.
+og-preview.html - A utility file used to generate the social media preview image.
 
-preview.jpg - (Required) The Open Graph preview image shown when the link is shared via text or social media.
+20251212_182720.jpg - (Required) The photo of Andrew & Cash displayed in the "Hosts" section.
 
-🛠️ How to Update
+preview.jpg - (Required) The image shown when the link is shared via text or social media.
 
-1. Changing Text
+🛠️ Customization & Updates
 
-To update the address, time, or descriptions, edit the index.html file directly. Look for the content inside the specific HTML tags (e.g., <span class="details-value">).
+1. Generating the Link Preview
 
-2. Updating Images
+To ensure the link looks great when texted:
 
-To change the host photo or link preview:
+Open og-preview.html in your web browser on a desktop.
 
-Rename your new image file to match the filename in the code exactly (e.g., 20251212_182720.jpg).
+Take a screenshot of the page (it is sized to 1200x630px).
 
-Upload it to this repository, replacing the existing file.
+Save the screenshot as preview.jpg.
+
+Upload it to this repository.
+
+2. Changing Text/Details
+
+Edit index.html directly. Search for specific text (e.g., "13130 Pond Springs") to update the address, time, or message.
 
 3. Modifying the RSVP Number
 
-Search for sms: in index.html to find the anchor tag and update the phone number:
+To update who receives the RSVP texts, search for sms: in index.html:
 
-<a href="sms:YOUR_NUMBER_HERE?body=Can't wait for NYE!" ... >
+<a href="sms:9258901507,5126569229?body=Can't wait for NYE!" ... >
 
+
+Replace the numbers with your preferred contacts, separated by a comma.
+
+4. Updating the Host Photo
+
+Rename your new photo to 20251212_182720.jpg (or update the filename in the HTML).
+
+Upload it to the repository to overwrite the existing file.
 
 🚀 Deployment
 
-This project is designed to be hosted on GitHub Pages.
+This project is designed to be hosted on GitHub Pages, and is currently formatted for a New Year's Eve party I'm hosting/hosted, but can be modified for your own purposes.
 
-Go to Settings > Pages.
+Go to your repository Settings.
+
+Click Pages in the left sidebar.
 
 Under Source, select Deploy from a branch.
 
